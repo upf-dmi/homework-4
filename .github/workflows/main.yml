@@ -1,0 +1,32 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+#
+# See https://github.com/r-lib/actions/tree/master/examples#readme for
+# additional example workflows available for the R community.
+
+name: R
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Check Hands_on_IV.Rmd
+        run: if [ -e Hands_on_IV.Rmd ] ; then exit 0 ; else { echo missing Hands_on_IV.Rmd ; exit 1 ; } ; fi
+      - name: Install rmarkdown
+        run: Rscript -e 'install.packages("rmarkdown")'
+      - name: Render Hands_on_IV.html
+        run: Rscript -e 'rmarkdown::render("Hands_on_IV.Rmd")'
+      - name: Check Hands_on_IV.html
+        run: if [ -e Hands_on_IV.html ] ; then exit 0 ; else { echo missing Hands_on_IV.html ; exit 1 ; } ; fi

@@ -1,5 +1,5 @@
 ---
-title: "Hands_on_sessions_9"
+title: "Hands_on_session_text_mining"
 author: "Janet Piñero (janet.pinero@upf.edu)"
 date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"      
 output:
@@ -17,9 +17,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 We will work with a set of publications related to breast cancer genetics and drug treatment downloaded from Pubmed. I suggest to use the [easyPubMed R package](https://cran.r-project.org/web/packages/easyPubMed/vignettes/getting_started_with_easyPubMed.html). 
 I also suggest to use the tutorial [here](https://www.tidytextmining.com/index.html).
-Rooms 1, 2, and 3 will work with breast cancer + genetics.   
-Rooms 4 and 5 will work with breast cancer + drug treatment.  
-You will prepare in teams a report answering the following questions:  
+
+
+You will prepare in teams a report answering the following questions for the disease that was assigned to your team:  
 
 How many papers were published monthly in the topic? (Choose an appropriate visualization)  
 
@@ -42,14 +42,15 @@ Visualize the network of bigrams of your document set.
 
 ```
 
-What are the more common genes/drugs mentioned in the publications? Verify that your results represent the current knowledge. (Hint: you can use the information in databases such as [DisGeNET](https://www.disgenet.org/) for the genes,  [DrugBank](https://go.drugbank.com/) for the drugs, and [ChEMBL](https://www.ebi.ac.uk/chembl/g/#browse/drug_indications) for therapeutic indications)  
+What are the more common genes  mentioned in the publications? Verify that your results represent the current knowledge. (Hint: you can use the information in databases such as [DisGeNET](https://www.disgenet.org/). 
+
 
 ```{r}
 
 ```
 
 
-Perform a clustering analysis. Is it possible to identify common topics mentioned in the clusters? (Hint: use the annotations of the paper with MeSH keywords )  
+Perform a clustering analysis. Is it possible to identify common topics mentioned in the clusters?  
 
 
 ```{r}
